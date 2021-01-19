@@ -3,9 +3,9 @@ slug: "ruuvitag"
 name: "ruuvitag"
 type: "sw.application"
 assets:
-  - url: "https://github.com/balena-io-playground/ruuvitag"
+  - url: "https://github.com/balenalabs-incubator/ruuvitag"
     name: "repository"
-  - url: "https://raw.githubusercontent.com/balena-io-playground/ruuvitag/main/logo.png"
+  - url: "https://raw.githubusercontent.com/balenalabs-incubator/ruuvitag/main/logo.png"
     name: "logo"
 data:
   description: "Collect data from a ruuvitag BLE sensor and chart it in a dashboard"
