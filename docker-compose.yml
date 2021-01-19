@@ -9,20 +9,20 @@ services:
     restart: never
     network_mode: host
   dashboard:
-    image: balenablocks/dashboard:raspberrypi4-64
+    image: balenablocks/dashboard:raspberrypi3
     restart: always
     volumes:
         - 'dashboard-data:/data'
     ports:
         - '80'
   influxdb:
-    image: influxdb@sha256:116afd3662c995818965acbc3f515851eb8b59b081852ee633b6516d83a343bd
+    image: influxdb@sha256:b099bdd1f4306689fd11c02f83b3de7fc11eccd8debf5f345e9be11d0a7cd7dc
     container_name: influxdb
     restart: always
     volumes:
       -   sensor-data:/data'
   connector:
-    image: balenablocks/connector:raspberrypi4-64
+    image: balenablocks/connector:raspberrypi3
     restart: always
     labels:
       io.balena.features.balena-api: '1' # necessary to discover services
