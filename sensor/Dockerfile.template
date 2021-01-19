@@ -1,0 +1,29 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3-build as build  
+
+RUN mkdir /install
+WORKDIR /install
+
+COPY requirements.txt /requirements.txt
+ENV PATH=/root/.local/bin:$PATH
+RUN pip3 install --user -r /requirements.txt
+
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3-run 
+COPY --from=build /root/.local /root/.local
+ENV PATH=/root/.local/bin:$PATH
+
+RUN install_packages bluez \
+bluez-hcidump \
+sudo
+
+WORKDIR /app
+
+COPY ./main.py .
+COPY ./start.sh .
+
+# Enable udevd so that plugged dynamic hardware devices show up in our container.
+ENV UDEV=1
+
+#Set permissions to allow BLE scanning
+RUN setcap 'cap_net_raw,cap_net_admin+eip' $(eval readlink -f `which python`)
+
+CMD ["/bin/sh","./start.sh"]

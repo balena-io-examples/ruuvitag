@@ -1,0 +1,34 @@
+version: '2'
+volumes:
+    dashboard-data:
+    sensor-data:
+services:
+  sensor:
+    build: ./sensor
+    privileged: true
+    restart: never
+    network_mode: host
+  dashboard:
+    image: balenablocks/dashboard:raspberrypi4-64
+    restart: always
+    volumes:
+        - 'dashboard-data:/data'
+    ports:
+        - '80'
+  influxdb:
+    image: influxdb@sha256:116afd3662c995818965acbc3f515851eb8b59b081852ee633b6516d83a343bd
+    container_name: influxdb
+    restart: always
+    volumes:
+      -   sensor-data:/data'
+  connector:
+    image: balenablocks/connector:raspberrypi4-64
+    restart: always
+    labels:
+      io.balena.features.balena-api: '1' # necessary to discover services
+    privileged: true # necessary to change container hostname
+  mqtt:
+    image: arm32v6/eclipse-mosquitto
+    ports:
+      - "1883:1883"
+    restart: always
