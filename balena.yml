@@ -16,3 +16,4 @@ data:
     - "raspberrypi4-64"
     - "raspberrypi400-64"
     - "fincm3"
+    - "nanopi-neo-air"
