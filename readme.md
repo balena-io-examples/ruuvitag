@@ -31,3 +31,4 @@ This project has been tested to work on the following devices:
 | Raspberry Pi 3b+ | ✔ |
 | Raspberry Pi 3b+ (64-bit OS) | ✔ |
 | balena Fin | ✔ |
+| Nanopi Neo Air | ✔ |
