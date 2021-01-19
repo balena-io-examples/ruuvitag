@@ -2,7 +2,7 @@
 A ruuvitag is a weatherproof, battery powered sensor which reports temperature, humidity, pressure and motion via Bluetooth Low Energy (BLE) beacons. Deploying this repo turns a raspberry pi (3, 4 or 400) or a [balenaFin](https://www.balena.io/fin/) into a data collector for the ruuvitag, and displays the data over time in the [dashboard](https://github.com/balenablocks/dashboard) balenaBlock.
 
 ## Deploy
-[![](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-playground/ruuvitag)
+[![](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balenalabs-incubator/ruuvitag)
 
 Just click the button, create or sign-in to your balenaCloud account, add your device and start charting your ruuvitag data!
 
