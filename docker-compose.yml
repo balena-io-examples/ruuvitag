@@ -19,6 +19,8 @@ services:
     image: influxdb@sha256:b099bdd1f4306689fd11c02f83b3de7fc11eccd8debf5f345e9be11d0a7cd7dc
     container_name: influxdb
     restart: always
+    environment: 
+      - INFLUXDB_DATA_DIR=/data
     volumes:
       -   sensor-data:/data'
   connector:
