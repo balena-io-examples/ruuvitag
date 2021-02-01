@@ -1,14 +1,16 @@
-version: "2"
-slug: "ruuvitag"
 name: "ruuvitag"
+description: "Collect data from a ruuvitag BLE sensor and chart it in a dashboard"
 type: "sw.application"
 assets:
-  - url: "https://github.com/balenalabs-incubator/ruuvitag"
-    name: "repository"
-  - url: "https://raw.githubusercontent.com/balenalabs-incubator/ruuvitag/main/logo.png"
-    name: "logo"
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/balenalabs-incubator/ruuvitag"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/balenalabs-incubator/ruuvitag/main/logo.png"
 data:
-  description: "Collect data from a ruuvitag BLE sensor and chart it in a dashboard"
   defaultDeviceType: "raspberrypi3"
   supportedDeviceTypes:
     - "raspberrypi3"
